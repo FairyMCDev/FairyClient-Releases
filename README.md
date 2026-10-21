@@ -73,9 +73,4 @@ Get-FileHash -Algorithm SHA256 -LiteralPath './PCL-Fairylands-1.21.11-1.2.9-Wind
 
 Fairylandsmod 自有代码采用 [Fairylands 专有使用许可](https://github.com/FairyMCDev/FairyClient-Releases/blob/main/LICENSE)（All Rights Reserved），不是 MIT 或其他开源许可证。允许正常安装、游玩和个人备份；在法律允许范围内，禁止未经授权的反编译、解密、绕过校验、修改再分发和冒充官方。第三方组件及 PCL 衍生部分继续适用各自上游许可，法定例外与既有合法授权不受影响。许可条款不是防破解技术措施。
 
-## 下载文件说明
 
-- 普通玩家下载完整 ZIP 即可；包名已去掉 `-Glass`，独立 TXT 文件已移除。
-- 完整包不含使用说明或安全检测报告。必要的[第三方署名、完整许可和启动器修改源码](https://github.com/FairyMCDev/FairyClient-Releases/blob/main/docs/third-party-notices-1.2.9.html)在公开仓库单独提供。
-- `client-index.json` 和三个 Mod JAR 是自动更新所需文件，请保留；独立 `SHA256SUMS.txt` 不再发布，校验值见上方与报告。
-- GitHub 自动显示的 `Source code (zip/tar.gz)` 是本公开仓库的标签快照，不是私人开发仓库的源码包；客户端开发源码继续保存在私人仓库。
