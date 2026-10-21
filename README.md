@@ -18,13 +18,13 @@
 | 病毒库版本 | 1.461.118.0 |
 | 病毒库更新时间 | 2026-10-20 15:02:06 UTC+8 |
 | 完整目录扫描 | 2026-10-21 10:24:10 UTC+8 至 2026-10-21 10:25:44 UTC+8 |
-| 最终 ZIP 扫描 | 2026-10-21 10:26:37 UTC+8 至 2026-10-21 10:34:52 UTC+8 |
+| 最终 ZIP 扫描 | 2026-10-21 11:03:30 UTC+8 至 2026-10-21 11:10:55 UTC+8 |
 | 两次退出码 | 0 |
 | 扫描结论 | 均明确返回 `found no threats` |
 | 实时防护 | 扫描期间保持开启 |
 | 启动器 EXE / 配套 DLL 的 Authenticode 状态 | `NotSigned`（尚未正式签名） |
 
-扫描范围为完整解压目录的 **5060 个文件**，包含启动器、DLL、Mod、Java 运行时、游戏资源及使用说明；随后生成内置报告并打包，再对最终 ZIP 扫描。最终包有 5061 个文件。嵌套格式、深度及扫描器本身的能力限制仍适用。
+原目录扫描覆盖 5,060 个文件（包含当时的使用说明）。此次只从完整包移除使用说明和随后生成的内置报告，保留的 **5059 个文件**逐一核对 SHA-256，与原来已扫描的文件一致。当前 ZIP 共 5059 个文件，并已重新单独扫描。嵌套格式、深度及扫描器本身的能力限制仍适用。
 
 两次均使用自定义扫描命令：
 
@@ -49,10 +49,10 @@ Scanning <release-target> found no threats.
 
 ### 文件校验
 
-文件：`PCL-Fairylands-1.21.11-1.2.9-Windows-x64.zip`，大小：**591909252 bytes**。最终 ZIP 扫描前、扫描后及上传前的 SHA-256 一致：
+文件：`PCL-Fairylands-1.21.11-1.2.9-Windows-x64.zip`，大小：**590706144 bytes**。最终 ZIP 扫描前、扫描后及上传前的 SHA-256 一致：
 
 ```text
-a7d9b4aac429a930031bd71f707f2e83421c4e46249a14ba54d62ddf388997fd
+1fa12e9ef24ee4637761d9fd5add4cc99a0ce2190b21123b4f78fdbeebd1fd2b
 ```
 
 玩家可用 PowerShell 核对下载文件：
@@ -61,7 +61,7 @@ a7d9b4aac429a930031bd71f707f2e83421c4e46249a14ba54d62ddf388997fd
 Get-FileHash -Algorithm SHA256 -LiteralPath './PCL-Fairylands-1.21.11-1.2.9-Windows-x64.zip'
 ```
 
-[下载完整 HTML 报告](https://github.com/FairyMCDev/FairyClient-Releases/releases/download/v1.2.9/Fairylands-1.2.9-Security-Report.html)，其中包含全部目录扫描文件的 SHA-256 清单、原始扫描记录和签名状态。完整包内也附有目录扫描报告。
+[下载完整 HTML 报告](https://github.com/FairyMCDev/FairyClient-Releases/releases/download/v1.2.9/Fairylands-1.2.9-Security-Report.html)，其中包含全部目录扫描文件的 SHA-256 清单、原始扫描记录和签名状态。完整包内不附使用说明或检测报告。
 
 ### 关于 SmartScreen 提示
 
@@ -69,9 +69,13 @@ Get-FileHash -Algorithm SHA256 -LiteralPath './PCL-Fairylands-1.21.11-1.2.9-Wind
 
 微软资料：[SmartScreen 信誉说明](https://learn.microsoft.com/en-us/windows/apps/package-and-deploy/smartscreen-reputation)、[Defender 命令行扫描](https://learn.microsoft.com/en-us/defender-endpoint/command-line-arguments-microsoft-defender-antivirus)。
 
+## Fairylands 自有代码许可
+
+Fairylandsmod 自有代码采用 [Fairylands 专有使用许可](https://github.com/FairyMCDev/FairyClient-Releases/blob/main/LICENSE)（All Rights Reserved），不是 MIT 或其他开源许可证。允许正常安装、游玩和个人备份；在法律允许范围内，禁止未经授权的反编译、解密、绕过校验、修改再分发和冒充官方。第三方组件及 PCL 衍生部分继续适用各自上游许可，法定例外与既有合法授权不受影响。许可条款不是防破解技术措施。
+
 ## 下载文件说明
 
 - 普通玩家下载完整 ZIP 即可；包名已去掉 `-Glass`，独立 TXT 文件已移除。
-- 必要的第三方署名、完整许可和启动器修改源码保留在包内 `使用说明.html`。
+- 完整包不含使用说明或安全检测报告。必要的[第三方署名、完整许可和启动器修改源码](https://github.com/FairyMCDev/FairyClient-Releases/blob/main/docs/third-party-notices-1.2.9.html)在公开仓库单独提供。
 - `client-index.json` 和三个 Mod JAR 是自动更新所需文件，请保留；独立 `SHA256SUMS.txt` 不再发布，校验值见上方与报告。
 - GitHub 自动显示的 `Source code (zip/tar.gz)` 是本公开仓库的标签快照，不是私人开发仓库的源码包；客户端开发源码继续保存在私人仓库。
